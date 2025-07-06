@@ -7,12 +7,7 @@ interface PromptInputProps {
   onGenerate: () => void;
 }
 
-export default function PromptInput({
-  prompt,
-  setPrompt,
-  isGenerating,
-  onGenerate,
-}: PromptInputProps) {
+export default function PromptInput({ prompt, setPrompt, isGenerating, onGenerate }: PromptInputProps) {
   const [localPrompt, setLocalPrompt] = useState(prompt);
   const [buttonText, setButtonText] = useState("Generate Art");
   const [isMounted, setIsMounted] = useState(false);
@@ -68,7 +63,7 @@ export default function PromptInput({
         id="prompt"
         value={localPrompt}
         onChange={handlePromptChange}
-        className="w-full h-32 p-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+        className="w-full h-32 p-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 dark:text-gray-100"
         placeholder="A serene landscape with mountains and a lake at sunset..."
       />
       <div className="text-sm text-gray-500 mt-1">{charCountDisplay}</div>

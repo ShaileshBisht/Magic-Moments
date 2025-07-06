@@ -6,6 +6,40 @@ Transform your ideas into stunning illustrations and logos with AI.
 
 ## Recent Changes
 
+### 2024 - Demo Page Architecture Refactor
+
+- **Files Created**:
+  - `app/demo/hooks/useDemo.ts` - Custom hook for demo logic
+- **Files Modified**:
+  - `app/demo/page.tsx` - Refactored to use custom hook
+- **Changes**:
+  - Created custom hook to separate business logic from UI components
+  - Extracted state management (`prompt`, `isGenerating`, `generatedImage`) to hook
+  - Moved `handleGenerate` function to hook for better organization
+  - Added `resetDemo` function for additional functionality
+- **Architecture Benefits**:
+  - Clean separation of concerns (logic vs presentation)
+  - Reusable hook for demo functionality
+  - Better testability with isolated business logic
+  - Consistent pattern with other page hooks (gallery)
+- **Code Quality**:
+  - Reduced component complexity
+  - Improved maintainability
+  - Better code organization following React best practices
+
+### 2024 - UI/UX Improvements
+
+- **File Modified**: `src/components/PromptInput.tsx`
+- **Issue Fixed**: Text visibility in "Describe your artwork" input field
+- **Changes**:
+  - Added `text-gray-900` for dark text in light mode
+  - Added `dark:text-gray-100` for light text in dark mode
+  - Fixed `color: inherit` causing invisible text issue
+- **Benefits**:
+  - Improved user experience with visible text input
+  - Better accessibility and contrast
+  - Consistent styling across light and dark modes
+
 ### 2024 - Project Structure Reorganization
 
 - **Folder Reorganization**:
@@ -105,8 +139,11 @@ Transform your ideas into stunning illustrations and logos with AI.
 │   │   ├── hooks/
 │   │   │   └── useGallery.ts # Custom hook for gallery logic
 │   │   └── page.tsx         # Gallery page component
+│   ├── demo/                # Demo page feature
+│   │   ├── hooks/
+│   │   │   └── useDemo.ts   # Custom hook for demo logic
+│   │   └── page.tsx         # Demo page component
 │   ├── pricing/             # Pricing page
-│   ├── demo/                # Demo page
 │   ├── blog/                # Blog pages
 │   ├── tutorials/           # Tutorial pages
 │   ├── layout.tsx           # Root layout component
@@ -117,6 +154,7 @@ Transform your ideas into stunning illustrations and logos with AI.
 │   │   ├── Hero.tsx         # Hero section with video background
 │   │   ├── FontShowcase.tsx # Font showcase component
 │   │   ├── Gallery.tsx      # Optimized gallery component
+│   │   ├── PromptInput.tsx  # AI prompt input component
 │   │   ├── AppBar.tsx       # Navigation component
 │   │   └── ...other components
 │   └── constants/           # Centralized constants

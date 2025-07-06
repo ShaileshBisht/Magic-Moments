@@ -1,23 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import PromptInput from "../../src/components/PromptInput";
 import GeneratedImage from "../../src/components/GeneratedImage";
+import { useDemo } from "./hooks/useDemo";
 
 export default function Demo() {
-  const [prompt, setPrompt] = useState("");
-  const [isGenerating, setIsGenerating] = useState(false);
-  const [generatedImage, setGeneratedImage] = useState<string | null>(null);
-
-  const handleGenerate = async () => {
-    if (!prompt) return;
-
-    setIsGenerating(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setGeneratedImage("/11.png");
-    setIsGenerating(false);
-  };
+  const { prompt, setPrompt, isGenerating, generatedImage, handleGenerate } = useDemo();
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
