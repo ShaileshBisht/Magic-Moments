@@ -1,35 +1,40 @@
-# Frontend Assignment: Landing site Optimization
+# MagicMoments - AI Illustration & Logo Generator
 
-## Task
+## Project Overview
 
-You're given a simple landing website. Written in Next.js, using TypeScript.
+Transform your ideas into stunning illustrations and logos with AI.
 
-The website has:
+## Recent Changes
 
-- landing page
-- demo page
-- blog
-- gallery
-- pricing
+### 2024 - Hero Component Video Fix
 
-Your task is to **optimize performance and fix any issues you find** while preserving the functionality. You are free to identify any bugs through out the project and apply any optimizations you see fit
+- **File**: `app/components/Hero.tsx`
+- **Change**: Fixed video source path in Hero component
+- **Details**:
+  - Changed video source from `/2.mp4` to `/7670835-uhd_3840_2160_30fps.mp4`
+  - Video now correctly loads from the public directory
+  - Updated to use the UHD video file available in the project
+
+## Project Structure
+
+```
+├── app/
+│   └── components/
+│       └── Hero.tsx          # Hero section with video background
+├── public/                   # Static assets
+│   ├── 7670835-uhd_3840_2160_30fps.mp4  # Hero background video
+│   └── ...other assets
+└── README.md                 # This file
+```
+
+## Features
+
+- AI-powered illustration generation
+- Logo creation tools
+- Demo functionality
+- Pricing information
+- Responsive design with video background
 
 ---
 
-## Submission
-
-Please submit:
-- a GitHub repo with your updated working code
-- An accompanying PDF file or readme explaining all the changes you did in Where/What/Why format
-- Deploy the site to a free platform (e.g., Netlify, Vercel, Render) and share the live link.
-
-## Example of Changes Documentation
-
-### Where/What/Why Format Example:
-
-1. **Where**: `src/pages/blog/[slug].tsx`
-2. **What**: Added dynamic imports for blog content
-3. **Why**: To reduce initial bundle size and improve First Contentful Paint (FCP)
-4. **Reference**: Documentation URL (optional)
-
----
+_Last updated: December 2024_
