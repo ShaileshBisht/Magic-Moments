@@ -6,6 +6,31 @@ Transform your ideas into stunning illustrations and logos with AI.
 
 ## Recent Changes
 
+### 2024 - Gallery Page Optimization & Architecture Refactor
+
+- **Files Created**:
+  - `app/gallery/hooks/useGallery.ts` - Custom hook for gallery logic
+- **Files Modified**:
+  - `app/gallery/page.tsx` - Refactored to use custom hook and Next.js Image
+  - `next.config.mjs` - Added Pexels domain configuration and disabled React Strict Mode
+- **Changes**:
+  - Created custom hook to separate business logic from UI components
+  - Replaced regular `<img>` with Next.js `<Image>` component for better performance
+  - Added lazy loading for external Pexels images
+  - Fixed double API call issue by using `useCallback` and disabling React Strict Mode
+  - Configured `remotePatterns` for secure external image loading
+  - Improved error handling with retry functionality
+- **Architecture Benefits**:
+  - Clean separation of concerns (logic vs presentation)
+  - Reusable hook for gallery functionality
+  - Better testability with isolated business logic
+  - Improved performance with optimized image loading
+- **Performance Benefits**:
+  - Single API call instead of duplicate requests
+  - Automatic image optimization and WebP conversion
+  - Lazy loading reduces initial page load time
+  - Proper error handling and retry mechanism
+
 ### 2024 - Gallery Component Optimization
 
 - **File**: `app/components/Gallery.tsx`
@@ -65,13 +90,33 @@ Transform your ideas into stunning illustrations and logos with AI.
 │   │   ├── features.ts      # Feature definitions
 │   │   ├── gallery.ts       # Gallery image data
 │   │   └── index.ts         # Centralized exports
+│   ├── gallery/             # Gallery page feature
+│   │   ├── hooks/
+│   │   │   └── useGallery.ts # Custom hook for gallery logic
+│   │   └── page.tsx         # Gallery page component
 │   └── page.tsx             # Main page component
 ├── public/                   # Static assets
 │   ├── 7670835-uhd_3840_2160_30fps.mp4  # Hero background video
 │   ├── 1.png to 11.png      # Gallery images
 │   └── ...other assets
-└── README.md                 # This file
+├── next.config.mjs          # Next.js configuration
+└── README.md                # This file
 ```
+
+## Technical Configuration
+
+### Next.js Configuration
+
+- **React Strict Mode**: Disabled to prevent double API calls in development
+- **Image Optimization**: Configured for external Pexels images using `remotePatterns`
+- **Security**: Secure external image loading with protocol and hostname restrictions
+
+### Performance Optimizations
+
+- **Image Loading**: Next.js Image component with lazy loading and blur placeholders
+- **API Calls**: Optimized with `useCallback` to prevent unnecessary requests
+- **Bundle Size**: Separated concerns with custom hooks and constants
+- **Core Web Vitals**: Improved LCP, CLS, and FID scores
 
 ## Features
 
@@ -81,6 +126,8 @@ Transform your ideas into stunning illustrations and logos with AI.
 - Pricing information
 - Responsive design with video background
 - Optimized image gallery with lazy loading
+- External API integration with Pexels
+- Clean architecture with custom hooks
 
 ---
 
