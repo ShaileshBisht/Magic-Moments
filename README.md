@@ -54,16 +54,21 @@ Transform your ideas into stunning illustrations and logos with AI.
 
 ### 2024 - UI/UX Improvements
 
-- **File Modified**: `src/components/PromptInput.tsx`
-- **Issue Fixed**: Text visibility in "Describe your artwork" input field
+- **Files Modified**:
+  - `src/components/PromptInput.tsx` - Fixed text visibility in "Describe your artwork" input
+  - `src/components/Newsletter.tsx` - Fixed text visibility in newsletter email input
+- **Issues Fixed**:
+  - Text visibility in "Describe your artwork" input field
+  - Text visibility in "Stay Updated" newsletter subscription input
 - **Changes**:
   - Added `text-gray-900` for dark text in light mode
   - Added `dark:text-gray-100` for light text in dark mode
-  - Fixed `color: inherit` causing invisible text issue
+  - Fixed `color: inherit` causing invisible text issues across input components
 - **Benefits**:
-  - Improved user experience with visible text input
-  - Better accessibility and contrast
+  - Improved user experience with visible text input across all forms
+  - Better accessibility and contrast ratios
   - Consistent styling across light and dark modes
+  - Enhanced form usability throughout the application
 
 ### 2024 - Project Structure Reorganization
 
@@ -180,6 +185,7 @@ Transform your ideas into stunning illustrations and logos with AI.
 │   │   ├── FontShowcase.tsx # Font showcase component
 │   │   ├── Gallery.tsx      # Optimized gallery component
 │   │   ├── PromptInput.tsx  # AI prompt input component
+│   │   ├── Newsletter.tsx   # Newsletter subscription component
 │   │   ├── AppBar.tsx       # Navigation component
 │   │   └── ...other components
 │   └── constants/           # Centralized constants
