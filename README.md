@@ -6,6 +6,26 @@ Transform your ideas into stunning illustrations and logos with AI.
 
 ## Recent Changes
 
+### 2024 - Project Structure Reorganization
+
+- **Folder Reorganization**:
+  - Moved `app/components/` to `src/components/`
+  - Moved `app/constants/` to `src/constants/`
+- **Files Updated**:
+  - All import statements across the application updated to reflect new paths
+  - `app/page.tsx`, `app/layout.tsx`, `app/demo/page.tsx`, `app/blog/page.tsx`
+  - `src/components/FontShowcase.tsx`, `src/components/Gallery.tsx`
+- **Rationale**:
+  - **Clean Separation**: `app/` directory now contains only Next.js routes and pages
+  - **Better Organization**: `src/` directory houses all application logic and reusable components
+  - **Industry Standard**: Follows Next.js best practices for project structure
+  - **Maintainability**: Clearer distinction between routing logic and application code
+- **Benefits**:
+  - Improved code organization and navigation
+  - Easier maintenance and scaling
+  - Better separation of concerns between routing and business logic
+  - Follows established Next.js conventions
+
 ### 2024 - Gallery Page Optimization & Architecture Refactor
 
 - **Files Created**:
@@ -34,8 +54,8 @@ Transform your ideas into stunning illustrations and logos with AI.
 ### 2024 - Gallery Component Optimization
 
 - **File**: `app/components/Gallery.tsx`
-- **Files Created**: `app/constants/gallery.ts` - Gallery image data
-- **Files Modified**: `app/constants/index.ts` - Added gallery exports
+- **Files Created**: `src/constants/gallery.ts` - Gallery image data
+- **Files Modified**: `src/constants/index.ts` - Added gallery exports
 - **Changes**:
   - Replaced regular `<img>` with Next.js `<Image>` component for better performance
   - Added lazy loading and blur placeholder for improved UX
@@ -53,10 +73,10 @@ Transform your ideas into stunning illustrations and logos with AI.
 ### 2024 - Constants Refactoring
 
 - **Files Created**:
-  - `app/constants/fonts.ts` - Extracted fonts data
-  - `app/constants/features.ts` - Extracted features data
-  - `app/constants/gallery.ts` - Gallery image data
-  - `app/constants/index.ts` - Centralized exports
+  - `src/constants/fonts.ts` - Extracted fonts data
+  - `src/constants/features.ts` - Extracted features data
+  - `src/constants/gallery.ts` - Gallery image data
+  - `src/constants/index.ts` - Centralized exports
 - **Files Modified**:
   - `app/components/FontShowcase.tsx` - Now imports fonts from constants
   - `app/components/Gallery.tsx` - Now imports gallery data from constants
@@ -80,22 +100,31 @@ Transform your ideas into stunning illustrations and logos with AI.
 ## Project Structure
 
 ```
-├── app/
-│   ├── components/
-│   │   ├── Hero.tsx          # Hero section with video background
-│   │   ├── FontShowcase.tsx  # Font showcase component
-│   │   └── Gallery.tsx       # Optimized gallery component
-│   ├── constants/            # Centralized constants
-│   │   ├── fonts.ts         # Font definitions
-│   │   ├── features.ts      # Feature definitions
-│   │   ├── gallery.ts       # Gallery image data
-│   │   └── index.ts         # Centralized exports
+├── app/                     # Next.js App Router (Routes Only)
 │   ├── gallery/             # Gallery page feature
 │   │   ├── hooks/
 │   │   │   └── useGallery.ts # Custom hook for gallery logic
 │   │   └── page.tsx         # Gallery page component
-│   └── page.tsx             # Main page component
-├── public/                   # Static assets
+│   ├── pricing/             # Pricing page
+│   ├── demo/                # Demo page
+│   ├── blog/                # Blog pages
+│   ├── tutorials/           # Tutorial pages
+│   ├── layout.tsx           # Root layout component
+│   ├── page.tsx             # Main page component
+│   └── globals.css          # Global styles
+├── src/                     # Application Source Code
+│   ├── components/          # Reusable UI components
+│   │   ├── Hero.tsx         # Hero section with video background
+│   │   ├── FontShowcase.tsx # Font showcase component
+│   │   ├── Gallery.tsx      # Optimized gallery component
+│   │   ├── AppBar.tsx       # Navigation component
+│   │   └── ...other components
+│   └── constants/           # Centralized constants
+│       ├── fonts.ts         # Font definitions
+│       ├── features.ts      # Feature definitions
+│       ├── gallery.ts       # Gallery image data
+│       └── index.ts         # Centralized exports
+├── public/                  # Static assets
 │   ├── 7670835-uhd_3840_2160_30fps.mp4  # Hero background video
 │   ├── 1.png to 11.png      # Gallery images
 │   └── ...other assets
@@ -117,6 +146,13 @@ Transform your ideas into stunning illustrations and logos with AI.
 - **API Calls**: Optimized with `useCallback` to prevent unnecessary requests
 - **Bundle Size**: Separated concerns with custom hooks and constants
 - **Core Web Vitals**: Improved LCP, CLS, and FID scores
+
+## Architecture Best Practices
+
+- **Project Structure**: Follows Next.js recommended patterns with `src` directory for application code
+- **Separation of Concerns**: Constants separated from routing logic
+- **Component Organization**: Reusable components in dedicated directories
+- **Code Organization**: Logical grouping of related functionality
 
 ## Features
 

@@ -1,8 +1,8 @@
-import Hero from "./components/Hero";
-import Features from "./components/Features";
-import Gallery from "./components/Gallery";
-import FontShowcase from "./components/FontShowcase";
-import { features } from "./constants";
+import Hero from "../src/components/Hero";
+import Features from "../src/components/Features";
+import Gallery from "../src/components/Gallery";
+import FontShowcase from "../src/components/FontShowcase";
+import { features } from "../src/constants";
 
 export default function Home() {
   return (
