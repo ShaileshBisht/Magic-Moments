@@ -8,191 +8,137 @@ Transform your ideas into stunning illustrations and logos with AI.
 
 ### 2024 - Gallery API Performance Optimization
 
-- **File Modified**: `app/gallery/hooks/useGallery.ts`
-- **Issue Fixed**: Repeated API calls on every page visit and component mount
-- **Implementation**: localStorage caching system with automatic expiration
+**Where:** `app/gallery/hooks/useGallery.ts`  
+**What:** Implemented localStorage caching system with automatic expiration  
+**Why:** To eliminate repeated API calls on every page visit and improve performance  
+**Reference:** [React useCallback Hook Documentation](https://react.dev/reference/react/useCallback)
+
 - **Features Added**:
   - `loadFromCache()` - Loads valid cached data from localStorage
   - `saveToCache()` - Saves API response to localStorage with timestamp
   - `isCacheValid()` - Validates cache based on 30-minute expiration
   - `clearCache()` - Manual cache clearing functionality
-- **Cache Management**:
-  - **Cache Key**: `"gallery_photos_cache"`
-  - **Cache Duration**: 30 minutes (configurable)
-  - **Automatic Cleanup**: Removes expired cache automatically
-  - **Error Handling**: Graceful fallback on localStorage errors
 - **Performance Benefits**:
-  - **Instant Loading**: Cached data loads immediately without API calls
-  - **Reduced API Usage**: Only fetches fresh data every 30 minutes
-  - **Better UX**: No loading spinner on subsequent visits
-  - **API Rate Limit Friendly**: Dramatically reduces API requests
-- **Smart Caching Flow**:
-  - First visit: Checks cache → API call if needed → Saves to cache
-  - Subsequent visits: Loads from cache instantly (within 30 minutes)
-  - Cache expiry: Automatically fetches fresh data and updates cache
+  - Instant loading with cached data
+  - Reduced API usage (30-minute cache duration)
+  - Better UX with no loading spinner on subsequent visits
+  - API rate limit friendly
 
 ### 2024 - Demo Page Architecture Refactor
 
-- **Files Created**:
-  - `app/demo/hooks/useDemo.ts` - Custom hook for demo logic
-- **Files Modified**:
-  - `app/demo/page.tsx` - Refactored to use custom hook
+**Where:** `app/demo/hooks/useDemo.ts`, `app/demo/page.tsx`  
+**What:** Created custom hook to separate business logic from UI components  
+**Why:** To improve code organization, testability, and follow React best practices
+
 - **Changes**:
-  - Created custom hook to separate business logic from UI components
-  - Extracted state management (`prompt`, `isGenerating`, `generatedImage`) to hook
-  - Moved `handleGenerate` function to hook for better organization
+  - Extracted state management to custom hook
+  - Moved `handleGenerate` function to hook
   - Added `resetDemo` function for additional functionality
-- **Architecture Benefits**:
-  - Clean separation of concerns (logic vs presentation)
+- **Benefits**:
+  - Clean separation of concerns
   - Reusable hook for demo functionality
   - Better testability with isolated business logic
-  - Consistent pattern with other page hooks (gallery)
-- **Code Quality**:
-  - Reduced component complexity
-  - Improved maintainability
-  - Better code organization following React best practices
 
 ### 2024 - UI/UX Improvements
 
-- **Files Modified**:
-  - `src/components/PromptInput.tsx` - Fixed text visibility in "Describe your artwork" input
-  - `src/components/Newsletter.tsx` - Fixed text visibility in newsletter email input
-- **Issues Fixed**:
-  - Text visibility in "Describe your artwork" input field
-  - Text visibility in "Stay Updated" newsletter subscription input
+**Where:** `src/components/PromptInput.tsx`, `src/components/Newsletter.tsx`  
+**What:** Fixed text visibility issues in input fields  
+**Why:** To resolve invisible text problems across light and dark modes
+
 - **Changes**:
   - Added `text-gray-900` for dark text in light mode
   - Added `dark:text-gray-100` for light text in dark mode
-  - Fixed `color: inherit` causing invisible text issues across input components
 - **Benefits**:
-  - Improved user experience with visible text input across all forms
-  - Better accessibility and contrast ratios
-  - Consistent styling across light and dark modes
-  - Enhanced form usability throughout the application
+  - Improved accessibility and contrast ratios
+  - Consistent styling across themes
+  - Enhanced form usability
 
 ### 2024 - Project Structure Reorganization
 
-- **Folder Reorganization**:
-  - Moved `app/components/` to `src/components/`
-  - Moved `app/constants/` to `src/constants/`
-- **Files Updated**:
-  - All import statements across the application updated to reflect new paths
-  - `app/page.tsx`, `app/layout.tsx`, `app/demo/page.tsx`, `app/blog/page.tsx`
-  - `src/components/FontShowcase.tsx`, `src/components/Gallery.tsx`
-- **Rationale**:
-  - **Clean Separation**: `app/` directory now contains only Next.js routes and pages
-  - **Better Organization**: `src/` directory houses all application logic and reusable components
-  - **Industry Standard**: Follows Next.js best practices for project structure
-  - **Maintainability**: Clearer distinction between routing logic and application code
+**Where:** `app/components/` → `src/components/`, `app/constants/` → `src/constants/`  
+**What:** Reorganized folder structure following Next.js best practices  
+**Why:** To achieve clean separation between routing logic and application code
+
 - **Benefits**:
-  - Improved code organization and navigation
-  - Easier maintenance and scaling
-  - Better separation of concerns between routing and business logic
+  - Clearer distinction between routes and components
+  - Better code organization and navigation
   - Follows established Next.js conventions
+  - Improved maintainability
 
 ### 2024 - Gallery Page Optimization & Architecture Refactor
 
-- **Files Created**:
-  - `app/gallery/hooks/useGallery.ts` - Custom hook for gallery logic
-- **Files Modified**:
-  - `app/gallery/page.tsx` - Refactored to use custom hook and Next.js Image
-  - `next.config.mjs` - Added Pexels domain configuration and disabled React Strict Mode
+**Where:** `app/gallery/hooks/useGallery.ts`, `app/gallery/page.tsx`, `next.config.mjs`  
+**What:** Refactored gallery with custom hooks and Next.js Image optimization  
+**Why:** To improve performance and fix double API call issues  
+**Reference:** [Next.js Image Optimization](https://nextjs.org/docs/app/building-your-application/optimizing/images)
+
 - **Changes**:
-  - Created custom hook to separate business logic from UI components
-  - Replaced regular `<img>` with Next.js `<Image>` component for better performance
+  - Created custom hook for gallery logic
+  - Replaced `<img>` with Next.js `<Image>` component
   - Added lazy loading for external Pexels images
-  - Fixed double API call issue by using `useCallback` and disabling React Strict Mode
-  - Configured `remotePatterns` for secure external image loading
-  - Improved error handling with retry functionality
-- **Architecture Benefits**:
-  - Clean separation of concerns (logic vs presentation)
-  - Reusable hook for gallery functionality
-  - Better testability with isolated business logic
-  - Improved performance with optimized image loading
-- **Performance Benefits**:
+  - Configured `remotePatterns` for secure image loading
+- **Benefits**:
   - Single API call instead of duplicate requests
   - Automatic image optimization and WebP conversion
-  - Lazy loading reduces initial page load time
-  - Proper error handling and retry mechanism
+  - Better error handling and retry mechanism
 
 ### 2024 - Gallery Component Optimization
 
-- **File**: `app/components/Gallery.tsx`
-- **Files Created**: `src/constants/gallery.ts` - Gallery image data
-- **Files Modified**: `src/constants/index.ts` - Added gallery exports
+**Where:** `src/components/Gallery.tsx`, `src/constants/gallery.ts`  
+**What:** Optimized gallery component with Next.js Image and extracted data to constants  
+**Why:** To improve performance and code maintainability
+
 - **Changes**:
-  - Replaced regular `<img>` with Next.js `<Image>` component for better performance
-  - Added lazy loading and blur placeholder for improved UX
-  - Implemented proper alt text and accessibility features
-  - Added hover effects with overlay and image scaling
-  - Extracted gallery data to constants for better maintainability
-  - Added descriptive subtitle and improved styling
-- **Performance Benefits**:
-  - Automatic image optimization and WebP conversion
-  - Lazy loading reduces initial page load time
-  - Blur placeholder prevents layout shift
-  - Responsive image sizing with proper `sizes` attribute
+  - Implemented lazy loading and blur placeholders
+  - Added hover effects and proper accessibility
+  - Extracted gallery data to constants
+- **Benefits**:
   - Better Core Web Vitals scores
+  - Improved user experience with smooth loading
+  - Centralized data management
 
 ### 2024 - Constants Refactoring
 
-- **Files Created**:
-  - `src/constants/fonts.ts` - Extracted fonts data
-  - `src/constants/features.ts` - Extracted features data
-  - `src/constants/gallery.ts` - Gallery image data
-  - `src/constants/index.ts` - Centralized exports
-- **Files Modified**:
-  - `app/components/FontShowcase.tsx` - Now imports fonts from constants
-  - `app/components/Gallery.tsx` - Now imports gallery data from constants
-  - `app/page.tsx` - Now imports features from constants
-- **Change**: Organized constants into separate files for better maintainability
+**Where:** `src/constants/fonts.ts`, `src/constants/features.ts`, `src/constants/gallery.ts`, `src/constants/index.ts`  
+**What:** Organized constants into separate files with centralized exports  
+**Why:** To improve code organization and reusability
+
 - **Benefits**:
-  - Improved code organization and reusability
-  - Centralized data management
-  - Easier maintenance and updates
   - Better separation of concerns
+  - Easier maintenance and updates
+  - Centralized data management
 
 ### 2024 - Hero Component Video Fix
 
-- **File**: `app/components/Hero.tsx`
-- **Change**: Fixed video source path in Hero component
-- **Details**:
-  - Changed video source from `/2.mp4` to `/7670835-uhd_3840_2160_30fps.mp4`
-  - Video now correctly loads from the public directory
-  - Updated to use the UHD video file available in the project
+**Where:** `src/components/Hero.tsx`  
+**What:** Fixed video source path from `/2.mp4` to `/7670835-uhd_3840_2160_30fps.mp4`  
+**Why:** To ensure video loads correctly from the public directory
 
 ### 2024 - AppBar Navigation Enhancement
 
-- **File Modified**: `src/components/AppBar.tsx`
-- **Change**: Added Tutorials link to navigation menu
+**Where:** `src/components/AppBar.tsx`  
+**What:** Added Tutorials link to navigation menu  
+**Why:** To improve user navigation and discoverability of educational content
+
 - **Implementation**:
-  - Added new navigation link for `/tutorials` route
-  - Positioned between Gallery and Blog links for logical flow
-  - Maintains consistent styling with existing navigation items
-  - Includes hover effects and dark mode support
-- **Benefits**:
-  - Improved user navigation and discoverability
-  - Better access to educational content
-  - Enhanced user experience with comprehensive tutorial access
-  - Consistent navigation pattern across all pages
+  - Positioned between Gallery and Blog links
+  - Maintains consistent styling with hover effects
+  - Includes dark mode support
 
 ### 2024 - Tutorials Page Optimization
 
-- **Files Created**:
-  - `src/constants/tutorials.ts` - Tutorial data constants
-  - `src/components/TutorialCard.tsx` - Reusable tutorial card component
-- **Files Modified**:
-  - `app/tutorials/page.tsx` - Refactored to use constants and components
-  - `src/constants/index.ts` - Added tutorials exports
+**Where:** `src/constants/tutorials.ts`, `src/components/TutorialCard.tsx`, `app/tutorials/page.tsx`  
+**What:** Extracted tutorial data to constants and created reusable components  
+**Why:** To improve code organization and maintainability following established patterns
+
 - **Changes**:
-  - Extracted tutorial data to constants with TypeScript interfaces
-  - Created reusable TutorialCard component
+  - Created TypeScript interfaces for tutorial data
+  - Built reusable TutorialCard component
   - Refactored page to use proper imports and mapping
   - Maintained original 2x2 grid layout and 4 tutorials
 - **Benefits**:
   - Better code organization and maintainability
-  - Reusable components following established patterns
-  - Proper TypeScript typing for tutorial data
+  - Proper TypeScript typing
   - Clean separation of data and presentation logic
 
 ## Project Structure
