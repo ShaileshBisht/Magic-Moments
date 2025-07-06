@@ -6,6 +6,31 @@ Transform your ideas into stunning illustrations and logos with AI.
 
 ## Recent Changes
 
+### 2024 - Gallery API Performance Optimization
+
+- **File Modified**: `app/gallery/hooks/useGallery.ts`
+- **Issue Fixed**: Repeated API calls on every page visit and component mount
+- **Implementation**: localStorage caching system with automatic expiration
+- **Features Added**:
+  - `loadFromCache()` - Loads valid cached data from localStorage
+  - `saveToCache()` - Saves API response to localStorage with timestamp
+  - `isCacheValid()` - Validates cache based on 30-minute expiration
+  - `clearCache()` - Manual cache clearing functionality
+- **Cache Management**:
+  - **Cache Key**: `"gallery_photos_cache"`
+  - **Cache Duration**: 30 minutes (configurable)
+  - **Automatic Cleanup**: Removes expired cache automatically
+  - **Error Handling**: Graceful fallback on localStorage errors
+- **Performance Benefits**:
+  - **Instant Loading**: Cached data loads immediately without API calls
+  - **Reduced API Usage**: Only fetches fresh data every 30 minutes
+  - **Better UX**: No loading spinner on subsequent visits
+  - **API Rate Limit Friendly**: Dramatically reduces API requests
+- **Smart Caching Flow**:
+  - First visit: Checks cache → API call if needed → Saves to cache
+  - Subsequent visits: Loads from cache instantly (within 30 minutes)
+  - Cache expiry: Automatically fetches fresh data and updates cache
+
 ### 2024 - Demo Page Architecture Refactor
 
 - **Files Created**:
@@ -182,6 +207,7 @@ Transform your ideas into stunning illustrations and logos with AI.
 
 - **Image Loading**: Next.js Image component with lazy loading and blur placeholders
 - **API Calls**: Optimized with `useCallback` to prevent unnecessary requests
+- **localStorage Caching**: Gallery data cached for 30 minutes to prevent repeated API calls
 - **Bundle Size**: Separated concerns with custom hooks and constants
 - **Core Web Vitals**: Improved LCP, CLS, and FID scores
 
