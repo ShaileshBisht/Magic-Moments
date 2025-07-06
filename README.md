@@ -6,6 +6,22 @@ Transform your ideas into stunning illustrations and logos with AI.
 
 ## Recent Changes
 
+### 2024 - Constants Refactoring
+
+- **Files Created**:
+  - `app/constants/fonts.ts` - Extracted fonts data
+  - `app/constants/features.ts` - Extracted features data
+  - `app/constants/index.ts` - Centralized exports
+- **Files Modified**:
+  - `app/components/FontShowcase.tsx` - Now imports fonts from constants
+  - `app/page.tsx` - Now imports features from constants
+- **Change**: Organized constants into separate files for better maintainability
+- **Benefits**:
+  - Improved code organization and reusability
+  - Centralized data management
+  - Easier maintenance and updates
+  - Better separation of concerns
+
 ### 2024 - Hero Component Video Fix
 
 - **File**: `app/components/Hero.tsx`
@@ -19,8 +35,14 @@ Transform your ideas into stunning illustrations and logos with AI.
 
 ```
 ├── app/
-│   └── components/
-│       └── Hero.tsx          # Hero section with video background
+│   ├── components/
+│   │   ├── Hero.tsx          # Hero section with video background
+│   │   └── FontShowcase.tsx  # Font showcase component
+│   ├── constants/            # Centralized constants
+│   │   ├── fonts.ts         # Font definitions
+│   │   ├── features.ts      # Feature definitions
+│   │   └── index.ts         # Centralized exports
+│   └── page.tsx             # Main page component
 ├── public/                   # Static assets
 │   ├── 7670835-uhd_3840_2160_30fps.mp4  # Hero background video
 │   └── ...other assets
