@@ -6,6 +6,25 @@ Transform your ideas into stunning illustrations and logos with AI.
 
 ## Recent Changes
 
+### 2024 - Navbar Background & Text Overlap Fix
+
+**Where:** `src/components/AppBar.tsx`, `app/layout.tsx`, `app/page.tsx`  
+**What:** Fixed transparent navbar background and text overlapping issues  
+**Why:** To improve readability and prevent content from being hidden behind the fixed navbar
+
+- **Changes**:
+  - Replaced `bg-transparent` with `bg-white/80 dark:bg-gray-900/80` for semi-transparent background
+  - Added `backdrop-blur-md` for modern glassmorphism effect
+  - Added subtle border with `border-b border-gray-200/20 dark:border-gray-700/20`
+  - Added `pt-16` to main layout to prevent content from being hidden behind fixed navbar
+  - Added `-mt-16` to home page to allow Hero component to start from top
+- **Benefits**:
+  - Better text readability with proper contrast
+  - No more content hidden behind navbar
+  - Modern glassmorphism design with backdrop blur
+  - Improved visual separation between navbar and content
+  - Consistent spacing across all pages
+
 ### 2024 - Gallery API Performance Optimization
 
 **Where:** `app/gallery/hooks/useGallery.ts`  
