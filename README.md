@@ -161,6 +161,21 @@ Transform your ideas into stunning illustrations and logos with AI.
   - Video now correctly loads from the public directory
   - Updated to use the UHD video file available in the project
 
+### 2024 - AppBar Navigation Enhancement
+
+- **File Modified**: `src/components/AppBar.tsx`
+- **Change**: Added Tutorials link to navigation menu
+- **Implementation**:
+  - Added new navigation link for `/tutorials` route
+  - Positioned between Gallery and Blog links for logical flow
+  - Maintains consistent styling with existing navigation items
+  - Includes hover effects and dark mode support
+- **Benefits**:
+  - Improved user navigation and discoverability
+  - Better access to educational content
+  - Enhanced user experience with comprehensive tutorial access
+  - Consistent navigation pattern across all pages
+
 ## Project Structure
 
 ```
@@ -234,6 +249,7 @@ Transform your ideas into stunning illustrations and logos with AI.
 - Optimized image gallery with lazy loading
 - External API integration with Pexels
 - Clean architecture with custom hooks
+- Tutorials functionality
 
 ---
 
