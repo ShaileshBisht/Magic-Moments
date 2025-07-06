@@ -63,7 +63,7 @@ export default function PromptInput({ prompt, setPrompt, isGenerating, onGenerat
         id="prompt"
         value={localPrompt}
         onChange={handlePromptChange}
-        className="w-full h-32 p-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 dark:text-gray-100"
+        className="w-full h-32 p-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600"
         placeholder="A serene landscape with mountains and a lake at sunset..."
       />
       <div className="text-sm text-gray-500 mt-1">{charCountDisplay}</div>

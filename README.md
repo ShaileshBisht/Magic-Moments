@@ -65,12 +65,18 @@ Transform your ideas into stunning illustrations and logos with AI.
 **Why:** To resolve invisible text problems across light and dark modes
 
 - **Changes**:
-  - Added `text-gray-900` for dark text in light mode
-  - Added `dark:text-gray-100` for light text in dark mode
+  - Added `text-gray-900 dark:text-gray-100` for proper text colors
+  - Added `bg-white dark:bg-gray-800` for background colors
+  - Added `border-gray-300 dark:border-gray-600` for consistent borders
+  - Added `placeholder-gray-500 dark:placeholder-gray-400` for placeholder visibility
+  - Enhanced "Stay Updated" heading with `text-gray-900 dark:text-white`
+  - Added `transition-colors` for smooth hover effects
 - **Benefits**:
   - Improved accessibility and contrast ratios
   - Consistent styling across themes
   - Enhanced form usability
+  - Better user experience with visible text in all modes
+  - Proper placeholder text visibility
 
 ### 2024 - Project Structure Reorganization
 
