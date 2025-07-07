@@ -15,6 +15,7 @@ Transform your ideas into stunning illustrations and logos with AI-powered techn
 - **Dark Mode**: Full dark/light theme support
 - **Error Handling**: Comprehensive error boundaries and 404 pages
 - **Performance Optimized**: Lazy loading, caching, and bundle splitting
+- **Dynamic Blog System**: SEO-friendly blog with dynamic slug routing and centralized data
 
 ## 🏗️ Architecture & Technology Stack
 
@@ -25,7 +26,7 @@ Transform your ideas into stunning illustrations and logos with AI-powered techn
 - **Tailwind CSS** for styling
 - **Dynamic Imports** for code splitting
 
-### **Performance Features**
+### **Performance & Blog Features**
 
 - **Lazy Loading**: Images and components loaded on-demand
 - **Skeleton Loaders**: Smooth loading experience with pulse animations
@@ -40,6 +41,14 @@ Transform your ideas into stunning illustrations and logos with AI-powered techn
 - **Global Error Boundary**: Root-level error recovery
 - **Loading States**: Professional loading components
 
+### **Dynamic Blog Routing**
+
+- **Slug-based Routing**: All blog posts are served via `/blog/[slug]` using Next.js dynamic routes
+- **Static Generation**: Blog posts are statically generated for performance and SEO
+- **Centralized Data**: All blog post content and metadata is managed in `src/constants/blog.ts` as a JSON array
+- **Easy Content Management**: Add or edit posts by updating a single file
+- **SEO-Friendly URLs**: Clean, descriptive URLs for each post (e.g., `/blog/future-ai-art`)
+
 ## 📁 Project Structure
 
 ```
@@ -53,6 +62,8 @@ Transform your ideas into stunning illustrations and logos with AI-powered techn
 │   ├── pricing/             # Pricing page
 │   ├── contact/             # Contact form page
 │   ├── blog/                # Blog pages
+│   │   ├── page.tsx        # Blog listing page
+│   │   └── [slug]/page.tsx # Dynamic blog post route (all posts handled by slug)
 │   ├── tutorials/           # Tutorial pages
 │   ├── layout.tsx           # Root layout
 │   ├── page.tsx             # Home page
@@ -78,6 +89,7 @@ Transform your ideas into stunning illustrations and logos with AI-powered techn
 │       ├── gallery.ts       # Gallery images
 │       ├── pricing.ts       # Pricing plans
 │       ├── tutorials.ts     # Tutorial data
+│       ├── blog.ts          # Blog post data (JSON array, slug-based)
 │       └── index.ts         # Centralized exports
 ├── public/                  # Static assets
 └── next.config.mjs          # Next.js configuration
@@ -260,6 +272,28 @@ npm run build
   - Data & Logic:
     - Constants extraction and centralization
     - Custom hooks for business logic
+
+#### Blog System Refactor
+
+- **Where:**
+  - `app/blog/page.tsx`
+  - `app/blog/[slug]/page.tsx`
+  - `src/constants/blog.ts`
+  - `src/components/BlogPostCard.tsx`
+- **What:**
+  - Migrated to dynamic slug-based blog routing
+  - Centralized all blog post data in a single JSON file
+  - Removed individual blog folders and page files
+- **Why:**
+  - To improve scalability, maintainability, and SEO
+  - To make it easier to add and manage blog content
+- **Reference:**
+  - [Next.js Dynamic Routes](https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes)
+  - [Next.js Data Fetching](https://nextjs.org/docs/app/building-your-application/data-fetching)
+- **Changes:**
+  - All blog posts now use a single dynamic route (`/blog/[slug]`)
+  - Blog data is managed in `src/constants/blog.ts`
+  - Old individual blog folders and files removed
 
 ## 🎯 Best Practices Implemented
 
