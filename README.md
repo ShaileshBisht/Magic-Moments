@@ -17,6 +17,14 @@ Transform your ideas into stunning illustrations and logos with AI-powered techn
 - **Error Handling**: Comprehensive error boundaries and 404 pages
 - **Performance Optimized**: Lazy loading, caching, and bundle splitting
 - **Dynamic Blog System**: SEO-friendly blog with dynamic slug routing and centralized data
+- **Dynamic Blog and Tutorial Routing**: Blog and tutorial pages are now dynamically generated from centralized JSON/TS data, making it easy to add or update content.
+- **Modern, Modular Tutorial UI**: Each tutorial page features a beautiful, responsive design with:
+  - Gradient headers, animated backgrounds, and glass-morphism effects
+  - Numbered, visually separated sections for easy reading
+  - Progress indicators and quick actions
+  - Modular components for header and content, making maintenance and updates simple
+- **Enhanced User Experience**: Improved navigation, call-to-action sections, and accessibility throughout the site.
+- **Consistent Design Language**: Unified color palette, rounded corners, smooth transitions, and responsive layouts.
 
 ## 🏗️ Architecture & Technology Stack
 
@@ -346,6 +354,14 @@ npm run build
 
 - All navigation links (Home, Gallery, Tutorials, Blog) are now managed in a single source of truth: `src/constants/index.ts` (`navLinks`).
 - Both the AppBar (desktop) and DrawerNav (mobile) use this array for consistent navigation and easier updates.
+
+## How Tutorials Work
+
+- All tutorial data is stored in `src/constants/tutorials.ts` (metadata) and `src/constants/tutorialContent.ts` (detailed content).
+- The dynamic route `app/tutorials/[slug]/page.tsx` renders each tutorial using modular components:
+  - `TutorialHeader` for the header and summary
+  - `TutorialContent` for the main content sections
+- Easily add new tutorials by updating the constants files—no need to touch the UI code!
 
 ---
 
