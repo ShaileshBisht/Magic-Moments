@@ -26,6 +26,44 @@
   .container {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+
+  /* Blog post content styles */
+  .blog-content {
+    @apply text-gray-700 dark:text-gray-300 leading-relaxed;
+  }
+
+  .blog-content h2 {
+    @apply text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4;
+  }
+
+  .blog-content h3 {
+    @apply text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3;
+  }
+
+  .blog-content p {
+    @apply mb-4 text-lg leading-relaxed;
+  }
+
+  .blog-content ul {
+    @apply mb-4 pl-6 space-y-2;
+  }
+
+  .blog-content li {
+    @apply list-disc text-lg;
+  }
+
+  .blog-content strong {
+    @apply font-semibold text-gray-900 dark:text-white;
+  }
+}
+
+@layer utilities {
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 
 /* Custom animations */
