@@ -342,6 +342,11 @@ npm run build
 - The selected theme is remembered for future visits.
 - All components and pages are fully styled for both themes.
 
+### Navigation Links Centralization
+
+- All navigation links (Home, Gallery, Tutorials, Blog) are now managed in a single source of truth: `src/constants/index.ts` (`navLinks`).
+- Both the AppBar (desktop) and DrawerNav (mobile) use this array for consistent navigation and easier updates.
+
 ---
 
 **🚀 Ready to create amazing AI-powered illustrations and logos!**

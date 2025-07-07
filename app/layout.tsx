@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import type { Metadata } from "next";
 import "./globals.css";
-import AppBar from "../src/components/AppBar";
-import { ThemeProvider } from "../src/contexts/ThemeContext";
+import AppShell from "../src/components/AppShell";
 
 export const metadata: Metadata = {
   title: "MagicMoments - AI Illustration & Logo Generator",
@@ -25,10 +24,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-white dark:bg-gray-900">
-        <ThemeProvider>
-          <AppBar />
-          <main className="flex min-h-screen flex-col pt-16">{children}</main>
-        </ThemeProvider>
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );
