@@ -13,6 +13,7 @@ Transform your ideas into stunning illustrations and logos with AI-powered techn
 - **Contact System**: Enterprise inquiry form with validation
 - **Tutorial System**: Educational content and guides
 - **Dark Mode**: Full dark/light theme support
+- **Dark/Light Theme Toggle**: Manual toggle in the navigation bar lets users switch between dark and light mode. Preference is saved for future visits.
 - **Error Handling**: Comprehensive error boundaries and 404 pages
 - **Performance Optimized**: Lazy loading, caching, and bundle splitting
 - **Dynamic Blog System**: SEO-friendly blog with dynamic slug routing and centralized data
@@ -334,6 +335,12 @@ npm run build
 - Includes a subtle gradient fade when content is truncated, smooth hover transitions, and animated underline effects.
 - The loader (skeleton) for this section also matches the new elegant style, including the gradient fade effect.
 - Fully responsive and works in both light and dark modes.
+
+### Dark/Light Theme Toggle
+
+- Added a theme toggle button to the navigation bar. Users can now manually switch between dark and light mode at any time.
+- The selected theme is remembered for future visits.
+- All components and pages are fully styled for both themes.
 
 ---
 

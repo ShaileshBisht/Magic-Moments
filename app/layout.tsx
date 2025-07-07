@@ -2,11 +2,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import AppBar from "../src/components/AppBar";
+import { ThemeProvider } from "../src/contexts/ThemeContext";
 
 export const metadata: Metadata = {
-  title: "MagicMoments - AI Art Generator for Creatives",
-  description: "Transform your ideas into stunning illustrations and logos with our AI-powered art generator",
-  keywords: ["AI art", "illustration", "logo design", "creative tools", "AI generator"],
+  title: "MagicMoments - AI Illustration & Logo Generator",
+  description: "Transform your ideas into stunning illustrations and logos with AI-powered technology",
 };
 
 export default function RootLayout({
@@ -25,8 +25,10 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-white dark:bg-gray-900">
-        <AppBar />
-        <main className="flex min-h-screen flex-col pt-16">{children}</main>
+        <ThemeProvider>
+          <AppBar />
+          <main className="flex min-h-screen flex-col pt-16">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );
