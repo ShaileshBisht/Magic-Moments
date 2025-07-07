@@ -1,8 +1,17 @@
+import dynamic from "next/dynamic";
 import Hero from "../src/components/Hero";
 import Features from "../src/components/Features";
-import Gallery from "../src/components/Gallery";
-import FontShowcase from "../src/components/FontShowcase";
+import { GalleryLoader, FontShowcaseLoader } from "../src/loaders";
 import { features } from "../src/constants";
+
+// Lazy load heavy components
+const Gallery = dynamic(() => import("../src/components/Gallery"), {
+  loading: () => <GalleryLoader />,
+});
+
+const FontShowcase = dynamic(() => import("../src/components/FontShowcase"), {
+  loading: () => <FontShowcaseLoader />,
+});
 
 export default function Home() {
   return (
