@@ -6,6 +6,32 @@ Transform your ideas into stunning illustrations and logos with AI.
 
 ## Recent Changes
 
+### 2024 - Pricing Page Responsive Design & Constants Refactoring
+
+**Where:** `app/pricing/page.tsx`, `src/constants/pricing.ts`, `src/constants/index.ts`  
+**What:** Made pricing page responsive and moved pricing data to constants  
+**Why:** To improve mobile/desktop experience and maintain consistent code organization
+
+- **Changes**:
+  - Replaced `flex overflow-hidden` with responsive CSS Grid layout
+  - Implemented breakpoint-based column layout: 1 column (mobile) → 2 columns (tablet) → 3 columns (desktop)
+  - Removed "City" pricing plan
+  - Extracted pricing plans array to `src/constants/pricing.ts`
+  - Added centralized export in `src/constants/index.ts`
+  - Updated pricing page to import from constants
+- **Benefits**:
+  - **Responsive Design**: Optimal layout across all screen sizes
+  - **Better Desktop Experience**: Improved card proportions and spacing
+  - **Code Organization**: Pricing data centralized for reusability
+  - **Maintainability**: Easy to update pricing plans from constants
+  - **Consistent Architecture**: Follows established project patterns
+
+#### Layout Breakpoints:
+
+- **Mobile (default)**: 1 column - stacked cards for easy scrolling
+- **Tablet (md)**: 2 columns - balanced layout for medium screens
+- **Desktop (lg+)**: 3 columns - optimal desktop viewing with proper card proportions
+
 ### 2024 - Dynamic Imports & Skeleton Loaders Implementation
 
 **Where:** `app/page.tsx`, `src/loaders/GalleryLoader.tsx`, `src/loaders/FontShowcaseLoader.tsx`, `src/loaders/index.ts`  
